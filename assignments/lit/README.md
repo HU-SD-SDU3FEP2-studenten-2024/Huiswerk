@@ -19,6 +19,7 @@ The importent folders in this assignments are:
 * [Assignment 3: Reactive Properties](./assignment3.md)
 * [Assignment 4: CustomEvent Counter](./assignment4.md)
 * [Assignment 5: Rendering Lit Components](./assignment5.md)
+* [Assignment 6: Lit Inputs](./assignment6.md)
 
 ---
 
