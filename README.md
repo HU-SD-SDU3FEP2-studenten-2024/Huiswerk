@@ -32,9 +32,11 @@
 
 ## Week 4
 
-* RxJS
+* Communication / RxJS
 
 **Huiswerk:**
+
+* Maak de [Communication / RxJS assignments](./assignments/rxjs/README.md).
 
 ## Week 5 - 9
 
