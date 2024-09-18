@@ -84,7 +84,7 @@ import '../components/custom-event-counter.js';
 And we need to append the custom event counter to the body of the `index.html` file.
 
 ```html
-<simple-counter></simple-counter>
+<custom-event-counter></custom-event-counter>
 
 <hr />
 ```
