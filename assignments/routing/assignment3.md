@@ -20,7 +20,7 @@ For our project this database will hold a list of all repairs. That's why we wil
 
 To run the `json-server` we add a script to our package.json:
 
-````json
+```json
 {
   "scripts": {
     "backend": "json-server db/db.json --port 3001"
