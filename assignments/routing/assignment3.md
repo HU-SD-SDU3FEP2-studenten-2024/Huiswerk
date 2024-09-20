@@ -26,6 +26,7 @@ To run the `json-server` we add a script to our package.json:
     "backend": "json-server db/db.json --port 3001"
   }
 }
+```
 
 To start the backend server open a new terminal and run:
 
