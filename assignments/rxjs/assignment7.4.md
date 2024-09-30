@@ -269,6 +269,9 @@ The `repairassignment-list` component is another good candidate for this refacto
   }
 ```
 
+> [!WARNING]
+It now looks like everything works fine, but when you go on with this site you are highly likely to run into problems. This is because we have forgotten to unsubscribe from the observables in our view components. This will cause errors when your data changes and the view components that are listening to those changes are not in the DOM anymore. So please apply the unsubscribe in the disconnectedCallback method of your view components, as we did in [assignment 7.1](./assignment7.1.md).
+
 This concludes the refactoring of the bike repair shop project to use RxJS. We now have a more reactive system that is easier to maintain and extend.
 
 But there is still a problem that we haven't addressed yet. To demonstrate this problem you have to open a second browser window or tab and navigate to the bike repair shop project. When you add, update or delete a repair assignment in one window or tab you will see that the other window or tab doesn't update. This is because the each window/tab has its own instance of the `repair-controller` and `repair-service`. So the changes in one window/tab are not propagated to the other window/tab. But their is no event emitting from the backend to the frontends when a change to the database is made.

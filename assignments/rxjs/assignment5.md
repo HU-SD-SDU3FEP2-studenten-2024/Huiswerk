@@ -50,4 +50,4 @@ We also should look at the architecture aspect of this solution. Why should the 
 
 ---
 
-:house: [Home](../../README.md) | :arrow_backward: [Assignment 4](./assignment4.md) | :arrow_up: [Assignments](./README.md) | [Assignment 5](./assignment5.md) :arrow_forward:
+:house: [Home](../../README.md) | :arrow_backward: [Assignment 4](./assignment4.md) | :arrow_up: [Assignments](./README.md) | [Assignment 6](./assignment6.md) :arrow_forward:

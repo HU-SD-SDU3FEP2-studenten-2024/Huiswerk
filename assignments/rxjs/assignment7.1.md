@@ -306,9 +306,14 @@ export class RxjsComponent extends LitElement {
         error: (error) => console.error('RxjsComponent.error()', error),
         complete: () => console.log('RxjsComponent.complete()')
       }
-      controllerLayer.controllerData$.subscribe(observer);
+      this.subscription = controllerLayer.controllerData$.subscribe(observer);
 
       controllerLayer.addData('Some data from RxjsComponent');
+    }
+
+    disconnectedCallback() {
+      this.subscription.unsubscribe();
+      super.disconnectedCallback();
     }
 
     updateData(data) {
@@ -330,6 +335,8 @@ export class RxjsComponent extends LitElement {
 
 customElements.define('rxjs-component', RxjsComponent);
 ```
+
+Unlike our `serviceLayer` and `controllerLayer` instances which are singeltons, and that exists during the lifetime of the application, the view layer components are created and destroyed when they are added and removed from the DOM. Therefore we need to unsubscribe from the Observable when the component is removed from the DOM. Otherwise the subscription will still be active and the component will still receive data from the Observable. This can lead to memory leaks and unexpected behavior. To be able to unsubscribe from the Observable we need to store the subscription in a property of the class. We can then unsubscribe from the Observable in the `disconnectedCallback` method of the class.
 
 Running the code you should see the message `RxjsComponent.render() ['Some data from RxjsComponent']` in the console and should also render this information on the page. The **view-layer** is now listening to the **controller-layer** and reacts on the emitted value, great.
 
@@ -367,9 +374,14 @@ export class Rxjs2Component extends LitElement {
       error: (error) => console.error('RxjsComponent.error()', error),
       complete: () => console.log('RxjsComponent.complete()'),
     };
-    controllerLayer.controllerData$.subscribe(observer);
+    this.subscription = controllerLayer.controllerData$.subscribe(observer);
 
     controllerLayer.addData('Some data from Rxjs2Component');
+  }
+
+  disconnectedCallback() {
+    this.subscription.unsubscribe();
+    super.disconnectedCallback();
   }
 
   updateData(data) {
